@@ -27,6 +27,12 @@ public class CandidateService implements ICandidateService {
     @Autowired
     RestTemplate restTemplate;
 
+    /*
+     * Purpose : Implement the Logic for Creating Candidate Details
+     * @author : Sravan Kumar
+     * @Param :  token ,candidateDTO and techStackId
+     * */
+
     @Override
     public Response addCandidate(String token, CandidateDTO candidateDTO, Long techStackId) {
         boolean isUserPresent = restTemplate.getForObject("http://ADMIN-SERVICE:8080/admin/validate/" + token, Boolean.class);
@@ -42,6 +48,12 @@ public class CandidateService implements ICandidateService {
         throw new LMSException(400, "Token Wrong");
     }
 
+    /*
+     * Purpose : Implement the Logic to Get All  Candidates Details
+     * @author : Sravan Kumar
+     * @Param :  token
+     * */
+
     @Override
     public List<CandidateModel> getAllCandidates(String token) {
         boolean isUserPresent = restTemplate.getForObject("http://ADMIN-SERVICE:8080/admin/validate/" + token, Boolean.class);
@@ -55,6 +67,12 @@ public class CandidateService implements ICandidateService {
         }
         throw new LMSException(400, "Token Wrong");
     }
+
+    /*
+     * Purpose : Implement the Logic to Update Candidate Details
+     * @author : Sravan Kumar
+     * @Param :  token and candidateDTO,id,techstackId
+     * */
 
 
     @Override
@@ -88,6 +106,12 @@ public class CandidateService implements ICandidateService {
         throw new LMSException(400, "Token Wrong");
     }
 
+    /*
+     * Purpose : Implement the Logic to Delete Candidate Details
+     * @author : Sravan Kumar
+     * @Param :  token and id
+     * */
+
 
     @Override
     public Response deleteCandidate(String token, Long id) {
@@ -107,6 +131,12 @@ public class CandidateService implements ICandidateService {
         throw new LMSException(400, "Token Wrong");
     }
 
+    /*
+     * Purpose : Implement the Logic of Get Candidate by Status
+     * @author : Sravan Kumar
+     * @Param :  token and status
+     * */
+
 
     @Override
     public List<CandidateModel> getCandidatesByStatus(String status, String token) {
@@ -121,6 +151,12 @@ public class CandidateService implements ICandidateService {
         }
         throw new LMSException(400, "Token Wrong");
     }
+
+    /*
+     * Purpose : Implement the Logic to Update Candidate Status
+     * @author : Sravan Kumar
+     * @Param :  token,id and status
+     * */
 
 
     @Override
@@ -138,6 +174,12 @@ public class CandidateService implements ICandidateService {
         }
         throw new LMSException(400, "Token Wrong");
     }
+
+    /*
+     * Purpose : Implement the Logic of Get Count By Candidate Status
+     * @author : Sravan Kumar
+     * @Param :  token and status
+     * */
 
 
     @Override

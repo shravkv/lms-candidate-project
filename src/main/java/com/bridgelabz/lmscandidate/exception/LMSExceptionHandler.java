@@ -8,6 +8,13 @@ import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
+
+
+/*
+ * Purpose : LMSExceptionHandler to Handle the Exceptions
+ * Version : 1.0
+ * @author : Sravan Kumar
+ * */
 @ControllerAdvice
 public class LMSExceptionHandler {
 
@@ -18,6 +25,12 @@ public class LMSExceptionHandler {
         response.setMessage(exception.getMessage());
         return new ResponseEntity<>(response, HttpStatus.INTERNAL_SERVER_ERROR);
     }
+
+    /*
+     * Purpose : MethodArgumentNotValidException to Handle the Validation Exceptions
+     * Version : 1.0
+     * @author : Sravan Kumar
+     * */
 
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public ResponseEntity<CustomException> handleHiringException(MethodArgumentNotValidException exception) {

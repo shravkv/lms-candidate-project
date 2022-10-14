@@ -20,6 +20,12 @@ public class CandidateController {
     @Autowired
     ICandidateService candidateService;
 
+    /*
+     * Purpose : Create Candidate Details
+     * @author : Sravan Kumar
+     * @Param :  token,techStackId and candidateDTO
+     * */
+
     @PostMapping("/addCandidate")
     public ResponseEntity<Response> addCandidate(@RequestHeader String token,
                                                  @Valid @RequestBody CandidateDTO candidateDTO,
@@ -29,12 +35,24 @@ public class CandidateController {
 
     }
 
+    /*
+     * Purpose : Retrieve all Candidates Details
+     * @author : Sravan Kumar
+     * @Param :  token
+     * */
+
 
     @GetMapping("/getAllCandidates")
     public ResponseEntity<List<?>> getAllCandidates(@RequestHeader String token) {
         List<CandidateModel> response = candidateService.getAllCandidates(token);
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
+
+    /*
+     * Purpose : Update Existing Candidate Details
+     * @author : Sravan Kumar
+     * @Param :  token,candidateDTO,id and techStackId
+     * */
 
 
     @PutMapping("/updateCandidateDetails/{id}")
@@ -47,6 +65,12 @@ public class CandidateController {
 
     }
 
+    /*
+     * Purpose : Delete Existing Candidate Details
+     * @author : Sravan Kumar
+     * @Param : token and id
+     * */
+
 
     @DeleteMapping("/deleteCandidateDetails/{id}")
     public ResponseEntity<Response> deleteCandidate(@RequestHeader String token,
@@ -56,6 +80,12 @@ public class CandidateController {
 
     }
 
+    /*
+     * Purpose : Retrieve the Candidate By Status
+     * @author : Sravan Kumar
+     * @Param :  token and status
+     * */
+
 
     @GetMapping("/getCandidatesByStatus")
     public ResponseEntity<List<?>> getCandidatesByStatus(@RequestHeader String token,
@@ -63,6 +93,12 @@ public class CandidateController {
         List<CandidateModel> response = candidateService.getCandidatesByStatus(token, status);
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
+
+    /*
+     * Purpose : Change the Candidate Status
+     * @author : Sravan Kumar
+     * @Param :  id,token and status
+     * */
 
 
     @PutMapping("/changeCandidateStatus/{id}")
@@ -73,6 +109,13 @@ public class CandidateController {
         return new ResponseEntity<>(response, HttpStatus.OK);
 
     }
+
+    /*
+     * Purpose : Retrieve the Count By Candidate Status
+     * @author : Sravan Kumar
+     * @Param :  token and status
+     * */
+
 
 
     @GetMapping("/getCountByStatus")

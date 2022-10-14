@@ -10,9 +10,21 @@ import java.util.Date;
 import java.util.Properties;
 
 
+/*
+ * Purpose : MailService used to Send a mail
+ * Version : 1.0
+ * @author : Sravan Kumar
+ * */
+
 @Component
 @Slf4j
 public class MailService {
+
+    /*
+     * Purpose : Implement the Logic of Send a Mail to User
+     * @author : Sravan Kumar
+     * @Param :  token and DTO
+     * */
 
     public static void send(String toEmail, String body, String subject) {
         final String fromEmail = System.getenv("Email");
